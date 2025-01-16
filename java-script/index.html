@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let data = [1, 2, 4, 5, 6, 7];
+      console.log(data.splice(2, 0, 30));
+      console.log(data);
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- element inserting in array -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Traversing</title>
+    <script>
+      let data = [1, 2, 4, 5, 6, 7];
+
+      function addElementInArray(position, element) {
+        for (let i = data.length; i > position; i--) {
+          data[i] = data[i - 1];
+        }
+        data[position] = element;
+
+        // Display the updated array
+        document.getElementById("output").innerText =
+          "Updated Array: " + data.join(", ");
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="addElementInArray(2, 3)">Click</button>
+    <p id="output"></p>
+  </body>
+</html> -->

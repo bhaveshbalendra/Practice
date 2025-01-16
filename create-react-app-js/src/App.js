@@ -1,68 +1,48 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-const Table = () => {
-  const initialGrid = Array.from({ length: 5 }, () =>
-    Array(5).fill({ value: "", color: "#ffffff" })
-  );
-
-  const [grid, setGrid] = useState(initialGrid);
-  const [selectedCell, setSelectedCell] = useState(null);
-  const [color, setColor] = useState("#ffffff");
-
-  function handleChange(rowIndex, colIndex, value) {
-    const newGrid = grid.map((row, rIdx) =>
-      row.map((cell, cIdx) =>
-        rIdx === rowIndex && cIdx === colIndex ? { ...cell, value } : cell
-      )
-    );
-    setGrid(newGrid);
-  }
-
-  function handleColorChange(e) {
-    setColor(e.target.value);
-    if (selectedCell) {
-      const { rowIndex, colIndex } = selectedCell;
-      const newGrid = grid.map((row, rIdx) =>
-        row.map((cell, cIdx) =>
-          rIdx === rowIndex && cIdx === colIndex
-            ? { ...cell, color: e.target.value }
-            : cell
-        )
-      );
-      setGrid(newGrid);
-    }
-  }
-
-  function handleCellSelect(rowIndex, colIndex) {
-    setSelectedCell({ rowIndex, colIndex });
-  }
-
+function App() {
+  const [on, setOn] = useState(0);
   return (
-    <>
-      <input type="color" value={color} onChange={handleColorChange} />
-      <table>
-        <tbody>
-          {grid.map((row, rowIndex) => (
-            <tr key={rowIndex}>
-              {row.map((cell, colIndex) => (
-                <td key={colIndex}>
-                  <input
-                    style={{ backgroundColor: cell.color }}
-                    type="text"
-                    value={cell.value}
-                    onChange={(e) =>
-                      handleChange(rowIndex, colIndex, e.target.value)
-                    }
-                    onFocus={() => handleCellSelect(rowIndex, colIndex)}
-                  />
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </>
-  );
-};
+    <div>
+      <form method="get">
+        <label htmlFor="fname">first name:</label>
+        <input type="text" id="fname" name="fname" placeholder="name" />
 
-export default Table;
+        <label htmlFor="lname">first name:</label>
+        <input
+          type="password"
+          id="lname"
+          name="lname"
+          placeholder="last name"
+          maxLength="12"
+        />
+        <input type="email" />
+        <input type="submit" />
+
+        <div>
+          <label htmlFor="title"> title</label>
+
+          <label htmlFor="">Mr.</label>
+          <input type="radio" name="title" value="Mr." />
+
+          <label htmlFor="">Mr.s</label>
+          <input type="radio" name="title" value="Mr." />
+
+          <label htmlFor="">PhD.</label>
+          <input type="radio" name="title" value="Mr." />
+        </div>
+
+        <div>
+          <label htmlFor="payment">payment:</label>
+          <select name="payment" id="payment">
+            <option value="visa">visa</option>
+            <option value="mastercard">mastercard</option>
+            <option value="rupay">rupay</option>
+          </select>
+        </div>
+      </form>
+    </div>
+  );
+}
+
+export default App;

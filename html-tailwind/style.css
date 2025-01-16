@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.cir {
+  height: 100px;
+  width: 100px;
+  clip-path: circle(50%);
+  background-color: red;
+}

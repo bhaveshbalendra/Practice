@@ -1,71 +1,15 @@
-import { useQuery } from "@tanstack/react-query";
-
-function App() {
-  const {
-    data: commentData,
-    error,
-    isError,
-    isLoading,
-  } = useQuery({
-    queryKey: ["comments"],
-    queryFn: async () => {
-      const res = await fetch("http://localhost:3000/comments", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      const commentData = await res.json();
-      return commentData;
-    },
-  });
-
+export default function App() {
   return (
-    <div>
-      {isLoading && <p>Loading...</p>}
-      {isError && <p>{error.message}</p>}
-      {commentData &&
-        commentData.map((comment, index) => (
-          <div key={index}>{comment.text}</div>
-        ))}
+    <div className="container">
+      <div className="top-boxs">
+        <div className="box"></div>
+        <div className="box"></div>
+        <div className="box"></div>
+      </div>
+      <div className="bottom-box">
+        <div className="line"></div>
+        <div className="line"></div>
+      </div>
     </div>
   );
 }
-
-export default App;
-
-// import { useQuery } from "@tanstack/react-query";
-
-// function App() {
-//   const {
-//     data: commentData,
-//     error,
-//     isError,
-//     isLoading,
-//   } = useQuery({
-//     queryKey: ["comments"],
-//     queryFn: async () => {
-//       const res = await fetch("http://localhost:3000/comments", {
-//         method: "GET",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//       });
-//       const commentData = await res.json();
-//       return commentData;
-//     },
-//   });
-//   console.log(commentData);
-//   return (
-//     <div>
-//       {isLoading && <p>Loading.....</p>}
-//       {isError && <p>{error?.message}</p>}
-//       {commentData.map((comment, index) => {
-//         <div key={index}>{comment.text}</div>;
-//       })}
-//     </div>
-//   );
-// }
-
-// export default App;
