@@ -1,1 +1,2 @@
-const num = { a: 10, b: 20, c: { a: 10, d: 20 } };
+const arr = [1, 1, 2, 3, 4, 5, 5, 5];
+console.log([...new Set(arr)]);

@@ -1,0 +1,169 @@
+let a = 5, b = 10;
+
+// Swap logic
+a = a + b; // a becomes 15 (5 + 10)
+b = a - b; // b becomes 5 (15 - 10)
+a = a - b; // a becomes 10 (15 - 5)
+
+console.log("a:", a, "b:", b); // Output: a: 10 b: 5
+
+
+
+let a = 5, b = 10;
+
+// Swap logic xor
+a = a ^ b; // a becomes 15 (binary 0101 ^ 1010)
+b = a ^ b; // b becomes 5 (binary 1111 ^ 1010)
+a = a ^ b; // a becomes 10 (binary 1111 ^ 0101)
+
+console.log("a:", a, "b:", b); // Output: a: 10 b: 5
+
+
+Reverse a String
+let str = "hello";
+let reversed = "";
+
+for (let i = str.length - 1; i >= 0; i--) {
+  reversed += str[i];
+}
+
+console.log(reversed); // Output: "olleh"
+
+
+let num = 7;
+let isPrime = true;
+
+if (num <= 1) {
+  isPrime = false;
+} else {
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      isPrime = false;
+      break;
+    }
+  }
+}
+
+console.log(isPrime ? "Prime" : "Not Prime");
+
+Find the Factorial of a Number
+let num = 5;
+let factorial = 1;
+
+for (let i = 1; i <= num; i++) {
+  factorial *= i;
+}
+
+console.log("Factorial:", factorial); // Output: 120
+
+
+Count Vowels in a String
+let str = "javascript";
+let count = 0;
+let vowels = "aeiou";
+
+for (let char of str.toLowerCase()) {
+  if (vowels.includes(char)) {
+    count++;
+  }
+}
+
+console.log("Vowel Count:", count); // Output: 3
+
+Check if a String is a Palindrome
+let str = "radar";
+let reversed = str.split("").reverse().join("");
+
+console.log(str === reversed ? "Palindrome" : "Not Palindrome");
+
+Find the Smallest Number in an Array
+let numbers = [4, 2, 9, 1, 5];
+let smallest = numbers[0];
+
+for (let num of numbers) {
+  if (num < smallest) {
+    smallest = num;
+  }
+}
+
+console.log("Smallest Number:", smallest); // Output: 1
+
+Count the Number of Digits in a Number
+let num = 12345;
+let count = 0;
+
+while (num > 0) {
+  count++;
+  num = Math.floor(num / 10);
+}
+
+console.log("Digit Count:", count); // Output: 5
+
+Remove Duplicates from an Array
+let numbers = [1, 2, 3, 2, 4, 1, 5];
+let uniqueNumbers = [...new Set(numbers)];
+
+console.log("Unique Numbers:", uniqueNumbers); // Output: [1, 2, 3, 4, 5]
+
+Find the Second Largest Number in an Array
+let numbers = [4, 1, 7, 3, 9];
+numbers.sort((a, b) => b - a); // Sort in descending order
+console.log("Second Largest:", numbers[1]); // Output: 7
+
+
+Generate a Fibonacci Series
+let n = 10;
+let fib = [0, 1];
+
+for (let i = 2; i < n; i++) {
+  fib.push(fib[i - 1] + fib[i - 2]);
+}
+
+console.log("Fibonacci Series:", fib);
+// Output: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+
+
+Find the Maximum Occurring Character in a String
+let str = "javascript";
+let frequency = {};
+
+for (let char of str) {
+  frequency[char] = (frequency[char] || 0) + 1;
+}
+
+let maxChar = "";
+let maxCount = 0;
+
+for (let char in frequency) {
+  if (frequency[char] > maxCount) {
+    maxChar = char;
+    maxCount = frequency[char];
+  }
+}
+
+console.log("Max Occurring Character:", maxChar); // Output: "a"
+
+Find All Prime Numbers in a Range
+let start = 10, end = 30;
+
+for (let num = start; num <= end; num++) {
+  let isPrime = true;
+
+  if (num <= 1) continue;
+
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      isPrime = false;
+      break;
+    }
+  }
+
+  if (isPrime) {
+    console.log(num);
+  }
+}
+
+
+
+
+
