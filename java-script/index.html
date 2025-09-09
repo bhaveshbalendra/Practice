@@ -4,13 +4,90 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script>
-      let data = [1, 2, 4, 5, 6, 7];
-      console.log(data.splice(2, 0, 30));
-      console.log(data);
-    </script>
   </head>
-  <body></body>
+  <body>
+    <h1 id="heading1">Bhavesh</h1>
+    <button onclick="handleClick()">click me</button>
+    <script>
+      const cart = [...Array.from({ length: 5 }, (_, i) => i + 1)];
+
+      const h1 = document.getElementById("heading1");
+
+      function handleClick() {
+        h1.innerHTML =
+          h1.innerText + ' <i style="background-color:red">Balendra</i>';
+        let newParagraph = document.createElement("p");
+        newParagraph.innerText = "New Paragraph added";
+
+        document.body.appendChild(newParagraph);
+        console.log(h1.innerHTML);
+
+        function getUser(userId) {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              console.log("User data fetched");
+              resolve({ userId, name: "Bhavesh" });
+            }, 1000);
+          });
+        }
+
+        function getOrders(userId) {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              console.log("Orders fetched");
+              resolve(["Order1", "Order2"]);
+            }, 1000);
+          });
+        }
+
+        function processPayment(order) {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              console.log("Payment processed for:", order);
+              resolve("Payment Successful");
+            }, 1000);
+          });
+        }
+
+        // ✅ Promise Chaining (No Callback Hell)
+        getUser(1)
+          .then((user) => getOrders(user.userId))
+          .then((orders) => processPayment(orders[0]))
+          .then((paymentStatus) => console.log(paymentStatus))
+          .catch((error) => console.error("Error:", error));
+      }
+
+      function getUser(userId, callback) {
+        setTimeout(() => {
+          console.log("User data fetched");
+          callback({ userId, name: "Bhavesh" });
+        }, 1000);
+      }
+
+      function getOrders(userId, callback) {
+        setTimeout(() => {
+          console.log("Orders fetched");
+          callback(["Order1", "Order2"]);
+        }, 1000);
+      }
+
+      function processPayment(order, callback) {
+        setTimeout(() => {
+          console.log("Payment processed for:", order);
+          callback("Payment Successful");
+        }, 1000);
+      }
+
+      // ⚠️ Nested Callbacks (Callback Hell)
+      getUser(1, (user) => {
+        getOrders(user.userId, (orders) => {
+          processPayment(orders[0], (paymentStatus) => {
+            console.log(paymentStatus);
+          });
+        });
+      });
+    </script>
+  </body>
 </html>
 
 <!-- element inserting in array -->
