@@ -7,7 +7,6 @@ import (
 
 func main() {
 	i := 5
-
 	switch i {
 	case 1:
 		fmt.Println("one")
